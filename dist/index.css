@@ -24,6 +24,7 @@
     border: 1px solid #434242;
     min-height: 200px;
     padding: 0 5px;
+    height: fit-content;
 }
 .header{
     padding: 0 10px;
@@ -81,7 +82,7 @@
     background-color: red !important;
 }
 .button-123{
-    font-size: 18px !important;
+    font-size: 17px !important;
     height: 35px;
     width: 150px;
     margin: 0 10px;
