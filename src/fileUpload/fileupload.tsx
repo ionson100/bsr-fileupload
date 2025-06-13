@@ -337,12 +337,9 @@ type ResponseUpload = {
                     }
                     <div className={'drop-zone-text-container'} style={{display:this.state.files.length!==0?"none":"block"}}>
                         <div className={'drop-zone-text-item'}>
-                            <p>
-                                {
-                                    this.props.dropZoneContent?this.props.dropZoneContent:'Drag and drop files here'
-                                }
-                            </p>
-
+                            {
+                                this.props.dropZoneContent?this.props.dropZoneContent:'Drag and drop files here'
+                            }
                         </div>
                     </div>
 

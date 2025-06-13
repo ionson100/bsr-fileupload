@@ -264,8 +264,7 @@ var FileUpload = /** @class */ (function (_super) {
                     return _this.renderNameFile(file, i);
                 }),
                 React.createElement("div", { className: 'drop-zone-text-container', style: { display: this.state.files.length !== 0 ? "none" : "block" } },
-                    React.createElement("div", { className: 'drop-zone-text-item' },
-                        React.createElement("p", null, this.props.dropZoneContent ? this.props.dropZoneContent : 'Drag and drop files here'))),
+                    React.createElement("div", { className: 'drop-zone-text-item' }, this.props.dropZoneContent ? this.props.dropZoneContent : 'Drag and drop files here')),
                 React.createElement("form", { ref: this.mRefForm },
                     React.createElement("input", { ref: this.mRefInput, hidden: true, type: "file", accept: this.props.accept, multiple: (_b = this.props.useModeMultipleFiles) !== null && _b !== void 0 ? _b : false, onChange: function (event) {
                             var droppedFiles = [];
