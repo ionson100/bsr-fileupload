@@ -1,0 +1,186 @@
+.item-file{
+
+    padding: 10px;
+    background-color: #faf6f6;
+
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 2px;
+    border-radius: 5px;
+}
+.host-icon{
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+.size-file{
+    width: 100%;
+    padding-right: 10px;
+    text-align: left;
+}
+.container-fu{
+    border-radius: 6px;
+    border: 1px solid #434242;
+    min-height: 200px;
+    padding: 0 5px;
+}
+.header{
+    padding: 0 10px;
+    text-align: left;
+}
+.drop-zone{
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: auto;
+    border: 2px dashed #18bf18;
+    border-radius: 5px;
+    padding: 5px;
+
+
+}
+.border-zone{
+    border: 2px dashed #18bf18;
+
+}
+.dragging{
+
+    border: 4px dashed #18bf18;
+}
+.footer{
+    display: flex;
+    justify-content: right;
+    padding: 7px;
+}
+.fu-error-panel{
+    /*height: 15px;*/
+    color: red;
+    font-size: 15px;
+}
+.total-size{
+    font-size: 14px;
+    font-weight: 700;
+}
+.icon-close-2{
+    cursor: pointer;
+    color: red;
+}
+.icon-close-2:hover{
+    color: #e6afaf;
+}
+.icon-close-2:active{
+    color: red;
+}
+.button-123-abort{
+    background-color: red !important;
+}
+.button-123-abort:hover{
+    background-color: #ea5f5f !important;
+}
+.button-123-abort:active{
+    background-color: red !important;
+}
+.button-123{
+    height: 35px;
+    width: 150px;
+    margin: 0 10px;
+    padding: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    color: white;
+    background: #6E6D70;
+}
+.button-123:hover{
+    background: #8d8c8e;
+}
+.button-123:active{
+    background: #6E6D70;
+}
+.drop-zone-text-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.drop-zone-text-item{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+[data-fuid] progress {
+    display: block;
+    width: auto;
+    vertical-align: baseline;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 10px;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.1), 0 0.5px 0.5px rgba(0, 0, 0, 0.15);
+    background: #eeeeee;
+    color: #18bf18;
+}
+/* Foreground - webkit browsers */
+[data-fuid] progress::-webkit-progress-value {
+    background: #18bf18;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+}
+/* Background - webkit browsers */
+[data-fuid] progress::-webkit-progress-bar {
+    background: #eeeeee;
+}
+/* Foreground - Firefox */
+[data-fuid] progress::-moz-progress-bar {
+    background: #18bf18;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+}
+/* Max value - webkit browsers */
+[data-fuid] progress[value="100"]::-webkit-progress-value {
+    border-radius: 1px;
+}
+/* Max value - Firefox */
+[data-fuid] progress[value="100"]::-moz-progress-bar {
+    border-radius: 1px;
+}
+
+
+
+
+.close-123 {
+    border-radius: 15px;
+    padding: 3px;
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    opacity: 0.3;
+}
+.close-123:hover {
+    opacity: 1;
+    background-color: #e4e3e3;
+}
+.close-123:before, .close-123:after {
+    position: absolute;
+    left: 9px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background-color: #111111;
+}
+.close-123:before {
+    transform: rotate(45deg);
+}
+.close-123:after {
+    transform: rotate(-45deg);
+}

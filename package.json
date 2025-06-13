@@ -1,0 +1,71 @@
+{
+    "name": "bsr-fileupload",
+    "version": "0.0.8",
+    "description": "React file upload ",
+    "author": "ionson100",
+    "license": "MIT",
+    "keywords": [
+        "react",
+        "upload"
+    ],
+    "repository": "https://github.com/ionson100/bsr-fileupload",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/index.d.ts",
+    "homepage": "https://ionson100.github.io/wwwroot/index.html#page=33-2",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "peerDependencies": {
+        "react": "*"
+    },
+    "scripts": {
+        "build": "rollup -c --bundleConfigAsCjs && @powershell copy  ./src/fileUpload/index.css ./dist"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^11.1.6",
+        "@types/jest": "^27.5.2",
+        "@types/node": "^16.18.97",
+        "@types/react": "^18.3.2",
+        "@types/react-dom": "^18.3.0",
+        "@types/uuid": "^10.0.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-react": "^7.26.1",
+        "postcss": "^8.4.38",
+        "postcss-modules": "^6.0.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-icons": "^5.5.0",
+        "react-scripts": "5.0.1",
+        "rollup": "^4.17.2",
+        "rollup-plugin-css-only": "^4.5.2",
+        "rollup-plugin-dts": "^6.1.0",
+        "rollup-plugin-import-css": "^3.5.0",
+        "rollup-plugin-lib-style": "^1.2.6",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "^4.0.2",
+        "typescript": "^4.9.5"
+    }
+}
