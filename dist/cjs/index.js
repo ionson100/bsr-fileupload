@@ -50,7 +50,7 @@ var FileUpload = /** @class */ (function (_super) {
         _this.mRefContainer = React.createRef();
         _this.handleFileUpload = function () {
             var getParam = function (xhr) {
-                return { statusText: xhr.statusText, status: xhr.status, responseText: xhr.responseText };
+                return { statusText: xhr.statusText, status: xhr.status, responseText: xhr.responseText, fileUpload: _this };
             };
             var getStrError = function (xhr) {
                 var _a, _b;

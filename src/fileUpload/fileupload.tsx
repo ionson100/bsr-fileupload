@@ -47,6 +47,7 @@ type ResponseUpload = {
     status:number,
     statusText:string;
     responseText:string|undefined
+    fileUpload:FileUpload
 }
 
  export class FileUpload extends React.Component<PropsUpload,StateUpload> {
@@ -89,7 +90,7 @@ type ResponseUpload = {
 
     private handleFileUpload = () => {
         const getParam=(xhr:XMLHttpRequest):ResponseUpload=>{
-            return  {statusText:xhr.statusText,status:xhr.status, responseText:xhr.responseText}
+            return  {statusText:xhr.statusText,status:xhr.status, responseText:xhr.responseText,fileUpload:this}
         }
         const getStrError=(xhr:XMLHttpRequest):string=>{
             return `status:${xhr.status} ${xhr.statusText??'empty'}: ${xhr.responseText??'empty'}`
