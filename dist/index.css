@@ -22,7 +22,6 @@
 .container-fu{
     border-radius: 6px;
     border: 1px solid #434242;
-    min-height: 200px;
     padding: 0 5px;
     height: fit-content;
 }
