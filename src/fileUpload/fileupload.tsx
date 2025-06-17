@@ -27,11 +27,15 @@ type PropsUpload={
     useHiddenButtonUpload?:boolean
     useHiddenButtonSelectFile?:boolean
     useHiddenButtonAbort?:boolean
-    onShowmenButtonUpload?:(isVisible:boolean) => void
-    onShowmenButtonAbort?:(isVisible:boolean) => void
+
+    onEventFilePresenceChange?:(presence:boolean) => void
+    onEventFileUploadStatus?:(status:boolean) => void
+
     renderFileItem?:(file:File) => ReactElement
-    onSetRequestUserData?:() => {[key: string]: string}
-    onSetRequestHeader?:() => {[key: string]: string}
+
+    addingUserData?:() => {[key: string]: string}
+    addingHeader?:() => {[key: string]: string}
+
     dropZoneContent?:string|ReactElement
     buttonFileUploadContent?:string|ReactElement
     buttonSelectFilesContent?:string|ReactElement
@@ -109,8 +113,8 @@ type ResponseUpload = {
                 })
 
             }
-            if (this.props.onSetRequestUserData){
-                const data=this.props.onSetRequestUserData()
+            if (this.props.addingUserData){
+                const data=this.props.addingUserData()
                 Object.entries(data).forEach(([key, value]) => {
                     formData.append(key,value)
                 })
@@ -123,8 +127,8 @@ type ResponseUpload = {
             this.state.files.forEach((file) => formData.append('file', file));
 
 
-            if (this.props.onSetRequestHeader){
-                const data=this.props.onSetRequestHeader()
+            if (this.props.addingHeader){
+                const data=this.props.addingHeader()
                 Object.entries(data).forEach(([key, value]) => {
                     this.xhr?.setRequestHeader(key,value)
                 })
@@ -255,12 +259,12 @@ type ResponseUpload = {
 
      render() {
         setTimeout(()=>{
-            if(this.props.onShowmenButtonUpload){
+            if(this.props.onEventFilePresenceChange){
                 const state=this.state.files.length > 0&&!this.state.isUploading;
-                this.props.onShowmenButtonUpload(state);
+                this.props.onEventFilePresenceChange(state);
             }
-            if(this.props.onShowmenButtonAbort){
-                this.props.onShowmenButtonAbort(this.state.isUploading);
+            if(this.props.onEventFileUploadStatus){
+                this.props.onEventFileUploadStatus(this.state.isUploading);
             }
         })
 

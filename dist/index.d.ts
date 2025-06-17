@@ -24,13 +24,13 @@ type PropsUpload = {
     useHiddenButtonUpload?: boolean;
     useHiddenButtonSelectFile?: boolean;
     useHiddenButtonAbort?: boolean;
-    onShowmenButtonUpload?: (isVisible: boolean) => void;
-    onShowmenButtonAbort?: (isVisible: boolean) => void;
+    onEventFilePresenceChange?: (presence: boolean) => void;
+    onEventFileUploadStatus?: (status: boolean) => void;
     renderFileItem?: (file: File) => ReactElement;
-    onSetRequestUserData?: () => {
+    addingUserData?: () => {
         [key: string]: string;
     };
-    onSetRequestHeader?: () => {
+    addingHeader?: () => {
         [key: string]: string;
     };
     dropZoneContent?: string | ReactElement;

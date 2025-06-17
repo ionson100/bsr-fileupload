@@ -66,16 +66,16 @@ var FileUpload = /** @class */ (function (_super) {
                         formData_1.append(key, value);
                     });
                 }
-                if (_this.props.onSetRequestUserData) {
-                    var data = _this.props.onSetRequestUserData();
+                if (_this.props.addingUserData) {
+                    var data = _this.props.addingUserData();
                     Object.entries(data).forEach(function (_a) {
                         var key = _a[0], value = _a[1];
                         formData_1.append(key, value);
                     });
                 }
                 _this.state.files.forEach(function (file) { return formData_1.append('file', file); });
-                if (_this.props.onSetRequestHeader) {
-                    var data = _this.props.onSetRequestHeader();
+                if (_this.props.addingHeader) {
+                    var data = _this.props.addingHeader();
                     Object.entries(data).forEach(function (_a) {
                         var _b;
                         var key = _a[0], value = _a[1];
@@ -211,12 +211,12 @@ var FileUpload = /** @class */ (function (_super) {
         var _this = this;
         var _a, _b, _c, _d;
         setTimeout(function () {
-            if (_this.props.onShowmenButtonUpload) {
+            if (_this.props.onEventFilePresenceChange) {
                 var state = _this.state.files.length > 0 && !_this.state.isUploading;
-                _this.props.onShowmenButtonUpload(state);
+                _this.props.onEventFilePresenceChange(state);
             }
-            if (_this.props.onShowmenButtonAbort) {
-                _this.props.onShowmenButtonAbort(_this.state.isUploading);
+            if (_this.props.onEventFileUploadStatus) {
+                _this.props.onEventFileUploadStatus(_this.state.isUploading);
             }
         });
         return (React.createElement("div", { "data-fuid": "fileUpload", id: this.props.id, style: this.props.style, ref: this.mRefContainer, className: this.props.className ? this.props.className : 'container-fu' },
