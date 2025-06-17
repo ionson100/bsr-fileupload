@@ -227,7 +227,7 @@ type ResponseUpload = {
                     }
 
                 </div>
-                {this.props.renderFileItem?this.props.renderFileItem(file):(<div style={{textAlign:'left'}}>{file.name}</div>)}
+                {this.props.renderFileItem?this.props.renderFileItem(file):(<div className={'text-nowrap'} style={{textAlign:'left'}}>{file.name}</div>)}
 
             </div>
         )

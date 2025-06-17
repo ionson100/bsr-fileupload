@@ -185,3 +185,8 @@
 .close-123:after {
     transform: rotate(-45deg);
 }
+.text-nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -194,7 +194,7 @@ var FileUpload = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'size-file total-size' },
                     "size: ", "".concat(file.size, " byte")),
                 !this.state.isUploading && (React.createElement("a", { href: "#", className: "close-123", onClick: function () { return _this.deleteFile(index); } }))),
-            this.props.renderFileItem ? this.props.renderFileItem(file) : (React.createElement("div", { style: { textAlign: 'left' } }, file.name))));
+            this.props.renderFileItem ? this.props.renderFileItem(file) : (React.createElement("div", { className: 'text-nowrap', style: { textAlign: 'left' } }, file.name))));
     };
     FileUpload.prototype.SelectFiles = function () {
         this.mRefInput.current.click();
