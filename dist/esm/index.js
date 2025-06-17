@@ -47,8 +47,8 @@ var FileUpload = /** @class */ (function (_super) {
         _this.mRefDrag = React.createRef();
         _this.mRefContainer = React.createRef();
         _this.handleFileUpload = function () {
-            var getParam = function (xhr) {
-                return { statusText: xhr.statusText, status: xhr.status, responseText: xhr.responseText, fileUpload: _this };
+            var getParam = function (xhr, innerError) {
+                return { statusText: xhr.statusText, status: xhr.status, responseText: xhr.responseText, fileUpload: _this, clientError: innerError };
             };
             var getStrError = function (xhr) {
                 var _a, _b;
@@ -133,11 +133,11 @@ var FileUpload = /** @class */ (function (_super) {
             catch (error) {
                 console.error(error);
                 if (_this.props.onError) {
-                    _this.props.onError(getParam(_this.xhr));
+                    _this.props.onError(getParam(_this.xhr, error));
                 }
                 _this.setState({
                     isUploading: false,
-                    errorMessage: getStrError(_this.xhr)
+                    errorMessage: 'client error:' + error
                 });
             }
         };

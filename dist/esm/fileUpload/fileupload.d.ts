@@ -46,6 +46,7 @@ type ResponseUpload = {
     statusText: string;
     responseText: string | undefined;
     fileUpload: FileUpload;
+    clientError?: any;
 };
 export declare class FileUpload extends React.Component<PropsUpload, StateUpload> {
     private xhr;

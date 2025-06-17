@@ -52,6 +52,7 @@ type ResponseUpload = {
     statusText:string;
     responseText:string|undefined
     fileUpload:FileUpload
+    clientError?:any
 }
 
  export class FileUpload extends React.Component<PropsUpload,StateUpload> {
@@ -93,8 +94,8 @@ type ResponseUpload = {
 
 
     private handleFileUpload = () => {
-        const getParam=(xhr:XMLHttpRequest):ResponseUpload=>{
-            return  {statusText:xhr.statusText,status:xhr.status, responseText:xhr.responseText,fileUpload:this}
+        const getParam=(xhr:XMLHttpRequest,innerError?:any):ResponseUpload=>{
+            return  {statusText:xhr.statusText,status:xhr.status, responseText:xhr.responseText,fileUpload:this,clientError:innerError}
         }
         const getStrError=(xhr:XMLHttpRequest):string=>{
             return `status:${xhr.status} ${xhr.statusText??'empty'}: ${xhr.responseText??'empty'}`
@@ -196,11 +197,12 @@ type ResponseUpload = {
         } catch (error) {
             console.error(error);
             if(this.props.onError){
-                this.props.onError(getParam(this.xhr));
+
+                this.props.onError(getParam(this.xhr,error));
             }
             this.setState({
                 isUploading: false,
-                errorMessage:getStrError(this.xhr)
+                errorMessage:'client error:'+ error
             })
         }
     };
