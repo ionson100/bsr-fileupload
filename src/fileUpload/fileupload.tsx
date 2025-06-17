@@ -127,14 +127,7 @@ type ResponseUpload = {
             this.state.files.forEach((file) => formData.append('file', file));
 
 
-            if (this.props.addingHeader){
-                const data=this.props.addingHeader()
-                Object.entries(data).forEach(([key, value]) => {
-                    this.xhr?.setRequestHeader(key,value)
-                })
 
-
-            }
 
             this.xhr.onabort = () => {
                 if(this.props.onAbort){
@@ -172,6 +165,14 @@ type ResponseUpload = {
                 }
             });
             this.xhr.open('POST', this._url?this._url:this.props.url); // Replace with your upload URL
+
+            if (this.props.addingHeader){
+                const data=this.props.addingHeader()
+                Object.entries(data).forEach(([key, value]) => {
+                    this.xhr?.setRequestHeader(key,value)
+                })
+            }
+
             this.xhr.send(formData);
             this.xhr.onload = () => {
 
@@ -193,7 +194,7 @@ type ResponseUpload = {
             };
 
         } catch (error) {
-            console.log(error);
+            console.error(error);
             if(this.props.onError){
                 this.props.onError(getParam(this.xhr));
             }

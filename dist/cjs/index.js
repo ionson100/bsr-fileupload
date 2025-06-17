@@ -74,14 +74,6 @@ var FileUpload = /** @class */ (function (_super) {
                     });
                 }
                 _this.state.files.forEach(function (file) { return formData_1.append('file', file); });
-                if (_this.props.addingHeader) {
-                    var data = _this.props.addingHeader();
-                    Object.entries(data).forEach(function (_a) {
-                        var _b;
-                        var key = _a[0], value = _a[1];
-                        (_b = _this.xhr) === null || _b === void 0 ? void 0 : _b.setRequestHeader(key, value);
-                    });
-                }
                 _this.xhr.onabort = function () {
                     if (_this.props.onAbort) {
                         _this.props.onAbort(getParam(_this.xhr));
@@ -114,6 +106,14 @@ var FileUpload = /** @class */ (function (_super) {
                     }
                 });
                 _this.xhr.open('POST', _this._url ? _this._url : _this.props.url); // Replace with your upload URL
+                if (_this.props.addingHeader) {
+                    var data = _this.props.addingHeader();
+                    Object.entries(data).forEach(function (_a) {
+                        var _b;
+                        var key = _a[0], value = _a[1];
+                        (_b = _this.xhr) === null || _b === void 0 ? void 0 : _b.setRequestHeader(key, value);
+                    });
+                }
                 _this.xhr.send(formData_1);
                 _this.xhr.onload = function () {
                     if (_this.xhr.status !== 200) {
@@ -133,7 +133,7 @@ var FileUpload = /** @class */ (function (_super) {
                 };
             }
             catch (error) {
-                console.log(error);
+                console.error(error);
                 if (_this.props.onError) {
                     _this.props.onError(getParam(_this.xhr));
                 }
