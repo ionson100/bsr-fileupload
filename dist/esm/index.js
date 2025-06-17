@@ -81,12 +81,6 @@ var FileUpload = /** @class */ (function (_super) {
                         errorMessage: 'abort'
                     });
                 };
-                if (_this.props.onPreUpload) {
-                    if (!_this.props.onPreUpload(formData_1, _this.xhr)) {
-                        _this.setState({ isUploading: false, files: [], uploadProgress: 100 });
-                        return;
-                    }
-                }
                 _this.xhr.onerror = function () {
                     console.error(_this.xhr);
                     if (_this.props.onError) {
@@ -111,6 +105,12 @@ var FileUpload = /** @class */ (function (_super) {
                         var key = _a[0], value = _a[1];
                         (_b = _this.xhr) === null || _b === void 0 ? void 0 : _b.setRequestHeader(key, value);
                     });
+                }
+                if (_this.props.onPreUpload) {
+                    if (!_this.props.onPreUpload(formData_1, _this.xhr)) {
+                        _this.setState({ isUploading: false, files: [], uploadProgress: 0, errorMessage: "Cancel by user" });
+                        return;
+                    }
                 }
                 _this.xhr.send(formData_1);
                 _this.xhr.onload = function () {

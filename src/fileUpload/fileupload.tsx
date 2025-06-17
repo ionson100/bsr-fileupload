@@ -140,12 +140,7 @@ type ResponseUpload = {
                 })
             }
 
-            if(this.props.onPreUpload){
-                if (!this.props.onPreUpload(formData,this.xhr)) {
-                    this.setState({ isUploading: false, files: [], uploadProgress: 100 });
-                    return;
-                }
-            }
+
             this.xhr.onerror = () => {
 
                 console.error(this.xhr)
@@ -172,6 +167,12 @@ type ResponseUpload = {
                 Object.entries(data).forEach(([key, value]) => {
                     this.xhr?.setRequestHeader(key,value)
                 })
+            }
+            if(this.props.onPreUpload){
+                if (!this.props.onPreUpload(formData,this.xhr)) {
+                    this.setState({ isUploading: false, files: [], uploadProgress: 0,errorMessage:"Cancel by user" });
+                    return;
+                }
             }
 
             this.xhr.send(formData);
