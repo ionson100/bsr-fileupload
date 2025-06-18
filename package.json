@@ -1,6 +1,6 @@
 {
     "name": "bsr-fileupload",
-    "version": "0.0.20",
+    "version": "0.0.21",
     "description": "React file upload ",
     "author": "ionson100",
     "license": "MIT",
@@ -12,7 +12,7 @@
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "types": "dist/index.d.ts",
-    "homepage": "https://ionson100.github.io/wwwroot/index.html#page=33-2",
+    "homepage": "https://ionson100.github.io/wwwroot/index.html#page=31-2",
     "files": [
         "dist",
         "README.md"
